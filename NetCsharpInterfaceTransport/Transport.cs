@@ -110,19 +110,10 @@ namespace NetCsharpInterfaceTransport
             Console.Write("RailWay move");
             Console.WriteLine();
         }
-        public void Park()
-        {
-            Console.WriteLine("RailWay parked");
-            Console.WriteLine();
-        }
-        public void MoveOnRoad()
-        {
-            Console.WriteLine("RailWay move on road");
-            Console.WriteLine();
-        }
+
         public void StopAtTrafficLight()
         {
-            Console.WriteLine("Car stopped at traffic light");
+            Console.WriteLine("RailWay stopped at traffic light");
             Console.WriteLine();
         }
         public void FollowTransportSigns()

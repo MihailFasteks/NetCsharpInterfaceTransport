@@ -32,49 +32,55 @@ Client3(boat1);
 
 
 
-static void Client3(ITransport itansport)
+static void Client3(ITransport itransport)
 {
-    itansport.Move();
+    itransport.Move();
 
-    /*
-     Pattern matching выполняет сопоставление с некоторым шаблоном (образцом). 
-     Выполняется сопоставление с типом IFigureAngle, который выступает в качестве шаблона. 
-     Если сопоставление прошло успешно, то в переменной iFigureAngle будет ссылка на объект.
-    */
-    if (itansport is IGround iground)
+  switch (itransport)
     {
-        iground.FollowTransportSigns();
-        iground.StopAtTrafficLight();
-    }
+        case IGround iground:
+            iground.FollowTransportSigns();
+            iground.StopAtTrafficLight();
+            break;
 
-    /*
-    Pattern matching выполняет сопоставление с некоторым шаблоном (образцом). 
-    Выполняется сопоставление с типом Rectangle, который выступает в качестве шаблона. 
-    Если сопоставление прошло успешно, то в переменной rectangle будет ссылка на объект.
-    */
-    if (itansport is IWater iwater)
-    {
-        iwater.Anchor();
-        iwater.Moor();
-        iwater.NavigateToPort();
-    }
+        case IWater iwater:
+            iwater.Anchor();
+            iwater.Moor();
+            iwater.NavigateToPort();
+            break;
 
-    /*
-     Pattern matching выполняет сопоставление с некоторым шаблоном (образцом). 
-     Выполняется сопоставление с типом IFigureRound, который выступает в качестве шаблона. 
-     Если сопоставление прошло успешно, то в переменной iFigureRound будет ссылка на объект.
-    */
-    if (itansport is IAir iair)
-    {
-        iair.TakeOff();
-        iair.Land();
-        iair.NavigateToAirport();
+        case IAir iair:
+            iair.TakeOff();
+            iair.Land();
+            iair.NavigateToAirport();
+            break;
     }
+    //if (itransport is IGround iground)
+    //{
+    //    iground.FollowTransportSigns();
+    //    iground.StopAtTrafficLight();
+    //}
 
-    if (itansport is Car car)
+
+    //if (itransport is IWater iwater)
+    //{
+    //    iwater.Anchor();
+    //    iwater.Moor();
+    //    iwater.NavigateToPort();
+    //}
+
+
+    //if (itransport is IAir iair)
+    //{
+    //    iair.TakeOff();
+    //    iair.Land();
+    //    iair.NavigateToAirport();
+    //}
+
+    if (itransport is Car car)
     {
         car.MoveOnRoad();
         car.Park();
-       
+
     }
 }
